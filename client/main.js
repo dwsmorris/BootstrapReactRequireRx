@@ -6,20 +6,22 @@ require({
 		"es5-shim": "thirdParty/es5-shim",
 		"console-polyfill": "thirdParty/console-polyfill",
 		html5shiv: "thirdParty/html5shiv",
-		react: "thirdParty/react-0.13.0"
-		/*
+		react: "thirdParty/react-with-addons",
+		JSXTransformer: "thirdParty/JSXTransformer"/*,
 		underscore: "thirdParty/underscore-1.6.0",
 		jquery: "thirdParty/jquery-2.0.3"
 		*/
 	},
+	jsx: {
+		fileExtension: ".jsx"
+	},
 	map: {
 		"*": {
-			/*
-			text: "thirdParty/text",
-			css: "thirdParty/require-css/css",
+			/*css: "thirdParty/require-css/css",
 			i18n: "thirdParty/i18n",
-			image: "thirdParty/image"
-			*/
+			image: "thirdParty/image",*/
+			text: "thirdParty/text",
+			jsx: "thirdParty/jsx"
 		}
 	},
 	shim: {
@@ -28,9 +30,6 @@ require({
 		},
 		react: {
 			deps: ["es5-shim", "es5-sham", "console-polyfill", "html5shiv"]
-		},
-		app: {
-			deps: ["react"]
 		}
 	},
 	urlArgs: "bust=" + (new Date()).getTime()
@@ -45,5 +44,5 @@ require({
 ) {
 	window.React = React;
 
-	require(["js/app"]);
+	require(["jsx!vdom/app"]);
 });
