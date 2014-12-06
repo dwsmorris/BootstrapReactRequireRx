@@ -7,7 +7,7 @@
     <author email="dwsmorris@hotmail.com" href="http://www.dwsmorris.com">
         Darryl Morris
     </author>
-    <content src="index.html" />
+    <content src="www/index.html" />
     <access origin="*" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
