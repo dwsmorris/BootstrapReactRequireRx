@@ -37,7 +37,7 @@
 			deps: ["es5-shim", "es5-sham", "console-polyfill", "html5shiv"]
 		}
 	},
-	mainConfigFile: "main.js",
+	mainConfigFile: "client/main.js",
 	stubModules: ['jsx'],
 	modules: [{
 		name: "main",
