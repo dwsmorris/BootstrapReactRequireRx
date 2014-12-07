@@ -37,10 +37,7 @@
 			deps: ["es5-shim", "es5-sham", "console-polyfill", "html5shiv"]
 		}
 	},
-	mainConfigFile: "client/main.js",
-	stubModules: ['jsx'],
 	modules: [{
-		name: "main",
-		exclude: ["react", "JSXTransformer", "text"]
+		name: "main"
 	}]
 })
