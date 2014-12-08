@@ -1,6 +1,4 @@
 require.config({
-  baseUrl: "js/",
-
   paths: {
     "react": "react-with-addons",
     "JSXTransformer": "JSXTransformer"
