@@ -4,8 +4,17 @@ require.config({
   	"es5-shim": "thirdParty/es5-shim",
   	"console-polyfill": "thirdParty/console-polyfill",
   	html5shiv: "thirdParty/html5shiv",
-  	"react": "react-with-addons",
-    "JSXTransformer": "JSXTransformer"
+  	"react": "thirdParty/react-with-addons",
+  	"JSXTransformer": "thirdParty/JSXTransformer"
+  },
+  map: {
+  	"*": {
+  		/*css: "thirdParty/require-css/css",
+		i18n: "thirdParty/i18n",
+		image: "thirdParty/image",*/
+  		text: "thirdParty/text",
+  		jsx: "thirdParty/jsx"
+  	}
   },
   shim: {
   	"es5-sham": {
