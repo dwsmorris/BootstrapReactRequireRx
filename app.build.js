@@ -1,12 +1,12 @@
 ({
-  appDir: "./js",
+  appDir: "client",
   baseUrl: "./",
-  dir: "./build_js",
+  dir: "client-build",
 
   // call with `node r.js -o build.js`
   // add `optimize=none` to skip script optimization (useful during debugging).
 
-  mainConfigFile: "./js/main.js",
+  mainConfigFile: "./client/main.js",
 
   stubModules: ['jsx'],
 
