@@ -32,19 +32,19 @@ require.config({
 
 require([
 	'react',
-	'components/Timer',
+	'components/timer/timer',
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
 	"html5shiv"
-], function (React, Timer) {
+], function (React, timer) {
 	window.React = React;
 
   var start = new Date();
-  Timer = React.createFactory(Timer);
+  timer = React.createFactory(timer);
 
   // Mount the JSX component in the app container
   React.render(
-      Timer({start: start}),
+      timer({start: start}),
       document.getElementById('js-app-container'));
 });
