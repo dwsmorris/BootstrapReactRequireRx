@@ -5,7 +5,8 @@ require.config({
   	"console-polyfill": "thirdParty/console-polyfill",
   	html5shiv: "thirdParty/html5shiv",
   	"react": "thirdParty/react-with-addons",
-  	"JSXTransformer": "thirdParty/JSXTransformer"
+  	"JSXTransformer": "thirdParty/JSXTransformer",
+	"mustache": "thirdParty/mustache"
   },
   map: {
   	"*": {
@@ -31,12 +32,14 @@ require.config({
 
 require([
 	'react',
-	'jsx!components/Timer',
+	'components/Timer',
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
 	"html5shiv"
 ], function (React, Timer) {
+	window.React = React;
+
   var start = new Date();
   Timer = React.createFactory(Timer);
 
