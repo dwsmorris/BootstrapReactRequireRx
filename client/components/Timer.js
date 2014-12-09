@@ -1,8 +1,16 @@
-define(['react'], function(React) {
+define([
+	'react',
+	"JSXTransformer",
+	"mustache"	
+], function (
+	React,
+	JsxTransformer,
+	mustache
+) {
   /**
    * <TimeMessage elapsed={100} />
    */
-  var TimeMessage = React.createClass({
+  var TimeMessage = React.createClass({displayName: 'TimeMessage',
     render: function() {
       var elapsed = Math.round(this.props.elapsed  / 100);
       var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
@@ -10,14 +18,16 @@ define(['react'], function(React) {
         'React has been successfully running for ' + seconds + ' seconds.';
 
       // JSX code
-      return <p>{message}</p>;
+      return JsxTransformer.exec(mustache.to_html("<p>{{message}}</p>", {
+		message: message
+      }));
     }
   });
 
   /**
    * <Timer start={aDate} />
    */
-  var Timer = React.createClass({
+  var Timer = React.createClass({displayName: 'Timer',
     getInitialState: function() {
       return {now: new Date()};
     },
@@ -32,7 +42,7 @@ define(['react'], function(React) {
     render: function() {
       // JSX code
       var elapsed = this.state.now.getTime() - this.props.start.getTime();
-      return <TimeMessage elapsed={elapsed} />;
+      return React.createElement(TimeMessage, {elapsed: elapsed});
     }
   });
 
