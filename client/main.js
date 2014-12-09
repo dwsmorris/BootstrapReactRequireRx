@@ -36,11 +36,20 @@ require.config({
 require([
 	'react',
 	'components/timer/timer',
+	"components/helloComponent/helloComponent",
+	"xmlToJs",
+	"text!demo2.xml",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
 	"html5shiv"
-], function (React, timer) {
+], function (
+	React,
+	timer,
+	helloComponent,
+	xmlToJs,
+	demo2Xml
+) {
 
 	var start = new Date();
 	timer = React.createFactory(timer);
@@ -50,4 +59,10 @@ require([
 		timer({ start: start }),
 		document.getElementById('js-app-container'));
 
+	React.render(
+		xmlToJs(demo2Xml, {
+			HelloComponent: helloComponent
+		}),
+		document.getElementsByClassName("label")[0]
+	);
 });
