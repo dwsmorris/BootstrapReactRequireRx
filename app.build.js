@@ -13,7 +13,7 @@
   modules: [
     {
       name: "main",
-      exclude: ["react", "JSXTransformer", "text"]
+      exclude: ["react", "jsxTransformer", "text"]
     }
   ]
 })
