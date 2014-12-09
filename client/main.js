@@ -5,8 +5,11 @@ require.config({
   	"console-polyfill": "thirdParty/console-polyfill",
   	html5shiv: "thirdParty/html5shiv",
   	"react": "thirdParty/react-with-addons",
-  	"JSXTransformer": "thirdParty/JSXTransformer",
-	"mustache": "thirdParty/mustache"
+  	"jsxTransformer": "thirdParty/JSXTransformer",
+  	"mustache": "thirdParty/mustache",
+  	maskedEval: "utility/maskedEval",
+  	htmlToJs: "utility/htmlToJs",
+	jquery: "thirdParty/jquery"
   },
   map: {
   	"*": {
@@ -38,13 +41,13 @@ require([
 	"console-polyfill",
 	"html5shiv"
 ], function (React, timer) {
-	window.React = React;
 
-  var start = new Date();
-  timer = React.createFactory(timer);
+	var start = new Date();
+	timer = React.createFactory(timer);
 
-  // Mount the JSX component in the app container
-  React.render(
-      timer({start: start}),
-      document.getElementById('js-app-container'));
+	// Mount the JSX component in the app container
+	React.render(
+		timer({ start: start }),
+		document.getElementById('js-app-container'));
+
 });

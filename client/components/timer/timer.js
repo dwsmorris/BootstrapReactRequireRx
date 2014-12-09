@@ -1,34 +1,43 @@
+/*globals define*/
+
 define([
 	'react',
-	"JSXTransformer",
 	"mustache",
-	"./timeMessage"
+	"./timeMessage",
+	"text!./timer.html",
+	"htmlToJs"
 ], function (
 	React,
-	JsxTransformer,
 	mustache,
-	timeMessage
+	TimeMessage,
+	timerHtml,
+	htmlToJs
 ) {
-  /**
-   * <Timer start={aDate} />
-   */
-  return React.createClass({displayName: 'Timer',
-    getInitialState: function() {
-      return {now: new Date()};
-    },
+	/**
+	 * <Timer start={aDate} />
+	 */
+	return React.createClass({
+		getInitialState: function () {
+			return { now: new Date() };
+		},
 
-    componentDidMount: function(el, root) {
-      var that = this;
-      setInterval(function() {
-        that.setState({now: new Date()});
-      }, 50);
-    },
+		componentDidMount: function (el, root) {
+			var that = this;
+			setInterval(function () {
+				that.setState({ now: new Date() });
+			}, 50);
+		},
 
-    render: function() {
-      // JSX code
-      var elapsed = this.state.now.getTime() - this.props.start.getTime();
-      return React.createElement(timeMessage, { elapsed: elapsed });
-    }
-  });
+		render: function () {
+			// JSX code
+			var elapsed = this.state.now.getTime() - this.props.start.getTime();
+
+			return htmlToJs(mustache.to_html(timerHtml, {
+				elapsed: elapsed
+			}), {
+				TimeMessage: TimeMessage
+			});
+		}
+	});
 
 });
