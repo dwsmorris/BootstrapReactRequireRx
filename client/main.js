@@ -9,8 +9,8 @@ require.config({
 		"react": "thirdparty/react-with-addons",
 		"jsxTransformer": "thirdparty/JSXTransformer",
 		"mustache": "thirdparty/mustache",
-		maskedEval: "utility/maskedEval",
-		xmlToJs: "utility/xmlToJs",
+		maskedEval: "utility/maskedeval",
+		xmlToJs: "utility/xmltojs",
 		jquery: "thirdparty/jquery"
 	},
 	map: {
