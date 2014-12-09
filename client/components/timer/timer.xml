@@ -1,1 +1,1 @@
-﻿<TimeMessage elapsed="{{{elapsed}}}"></TimeMessage>
+﻿<TimeMessage elapsed="{{elapsed}}"></TimeMessage>
