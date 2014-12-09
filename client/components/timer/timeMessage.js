@@ -3,12 +3,12 @@
 define([
 	"react",
 	"mustache",
-	"text!./timeMessage.html",
+	"text!./timeMessage.xml",
 	"htmlToJs"
 ], function (
 	React,
 	mustache,
-	timeMessageHtml,
+	timeMessageXml,
 	htmlToJs
 ) {
 	/**
@@ -21,7 +21,7 @@ define([
 			var message =
 			  "React has been successfully running for " + seconds + " seconds.";
 
-			return htmlToJs(mustache.to_html(timeMessageHtml, {
+			return htmlToJs(mustache.to_html(timeMessageXml, {
 				message: message
 			}));
 		}

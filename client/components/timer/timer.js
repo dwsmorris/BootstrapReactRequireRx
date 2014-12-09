@@ -4,13 +4,13 @@ define([
 	'react',
 	"mustache",
 	"./timeMessage",
-	"text!./timer.html",
+	"text!./timer.xml",
 	"htmlToJs"
 ], function (
 	React,
 	mustache,
 	TimeMessage,
-	timerHtml,
+	timerXml,
 	htmlToJs
 ) {
 	/**
@@ -32,7 +32,7 @@ define([
 			// JSX code
 			var elapsed = this.state.now.getTime() - this.props.start.getTime();
 
-			return htmlToJs(mustache.to_html(timerHtml, {
+			return htmlToJs(mustache.to_html(timerXml, {
 				elapsed: elapsed
 			}), {
 				TimeMessage: TimeMessage
