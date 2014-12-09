@@ -4,12 +4,12 @@ define([
 	"react",
 	"mustache",
 	"text!./timeMessage.xml",
-	"htmlToJs"
+	"xmlToJs"
 ], function (
 	React,
 	mustache,
 	timeMessageXml,
-	htmlToJs
+	xmlToJs
 ) {
 	/**
 	 * <TimeMessage elapsed={100} />
@@ -21,7 +21,7 @@ define([
 			var message =
 			  "React has been successfully running for " + seconds + " seconds.";
 
-			return htmlToJs(mustache.to_html(timeMessageXml, {
+			return xmlToJs(mustache.to_html(timeMessageXml, {
 				message: message
 			}));
 		}

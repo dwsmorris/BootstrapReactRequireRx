@@ -8,7 +8,7 @@ require.config({
   	"jsxTransformer": "thirdParty/JSXTransformer",
   	"mustache": "thirdParty/mustache",
   	maskedEval: "utility/maskedEval",
-  	htmlToJs: "utility/htmlToJs",
+  	xmlToJs: "utility/xmlToJs",
 	jquery: "thirdParty/jquery"
   },
   map: {
