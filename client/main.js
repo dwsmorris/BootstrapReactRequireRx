@@ -2,24 +2,24 @@
 
 require.config({
 	paths: {
-		"es5-sham": "thirdParty/es5-sham",
-		"es5-shim": "thirdParty/es5-shim",
-		"console-polyfill": "thirdParty/console-polyfill",
-		html5shiv: "thirdParty/html5shiv",
-		"react": "thirdParty/react-with-addons",
-		"jsxTransformer": "thirdParty/JSXTransformer",
-		"mustache": "thirdParty/mustache",
+		"es5-sham": "thirdparty/es5-sham",
+		"es5-shim": "thirdparty/es5-shim",
+		"console-polyfill": "thirdparty/console-polyfill",
+		html5shiv: "thirdparty/html5shiv",
+		"react": "thirdparty/react-with-addons",
+		"jsxTransformer": "thirdparty/JSXTransformer",
+		"mustache": "thirdparty/mustache",
 		maskedEval: "utility/maskedEval",
 		xmlToJs: "utility/xmlToJs",
-		jquery: "thirdParty/jquery"
+		jquery: "thirdparty/jquery"
 	},
 	map: {
 		"*": {
-			/*css: "thirdParty/require-css/css",
-			i18n: "thirdParty/i18n",
-			image: "thirdParty/image",*/
-			text: "thirdParty/text",
-			jsx: "thirdParty/jsx"
+			/*css: "thirdparty/require-css/css",
+			i18n: "thirdparty/i18n",
+			image: "thirdparty/image",*/
+			text: "thirdparty/text",
+			jsx: "thirdparty/jsx"
 		}
 	},
 	shim: {
@@ -38,7 +38,7 @@ require.config({
 require([
 	'react',
 	'components/timer/timer',
-	"components/helloComponent/helloComponent",
+	"components/hellocomponent/hellocomponent",
 	"xmlToJs",
 	"text!demo2.xml",
 	"es5-shim",

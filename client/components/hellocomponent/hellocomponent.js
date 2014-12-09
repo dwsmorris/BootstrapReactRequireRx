@@ -3,7 +3,7 @@
 define([
 	"react",
 	"xmlToJs",
-	"text!./helloComponent.xml",
+	"text!./hellocomponent.xml",
 	"mustache"
 ], function (
 	React,

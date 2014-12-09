@@ -3,7 +3,7 @@
 define([
 	'react',
 	"mustache",
-	"./timeMessage",
+	"./timemessage",
 	"text!./timer.xml",
 	"xmlToJs"
 ], function (
