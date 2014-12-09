@@ -41,6 +41,7 @@ require([
 	"components/hellocomponent/hellocomponent",
 	"xmlToJs",
 	"text!demo2.xml",
+	"jquery",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -50,7 +51,8 @@ require([
 	timer,
 	helloComponent,
 	xmlToJs,
-	demo2Xml
+	demo2Xml,
+	$
 ) {
 
 	// Mount the JSX component in the app container
@@ -63,6 +65,6 @@ require([
 		xmlToJs(demo2Xml, {
 			HelloComponent: helloComponent
 		}),
-		document.getElementsByClassName("label")[0]
+		$(".label").get(0)
 	);
 });
