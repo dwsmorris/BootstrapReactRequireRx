@@ -42,6 +42,7 @@ require([
 	"xmlToJs",
 	"text!demo2.xml",
 	"jquery",
+	"components/secondtimer/secondtimer",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -52,7 +53,8 @@ require([
 	helloComponent,
 	xmlToJs,
 	demo2Xml,
-	$
+	$,
+	secondTimer
 ) {
 
 	// Mount the JSX component in the app container
@@ -66,5 +68,10 @@ require([
 			HelloComponent: helloComponent
 		}),
 		$(".label").get(0)
+	);
+
+	React.render(
+		React.createElement(secondTimer),
+		$(".secondTimer").get(0)
 	);
 });
