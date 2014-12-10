@@ -12,7 +12,8 @@ require.config({
 		maskedEval: "utility/maskedeval",
 		xmlToJs: "utility/xmltojs",
 		jquery: "thirdparty/jquery",
-		underscore: "thirdparty/underscore"
+		underscore: "thirdparty/underscore",
+		rx: "thirdparty/rx"
 	},
 	map: {
 		"*": {
@@ -45,6 +46,7 @@ require([
 	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
+	"rx",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -57,7 +59,8 @@ require([
 	demo2Xml,
 	$,
 	secondTimer,
-	todos
+	todos,
+	Rx
 ) {
 
 	// Mount the JSX component in the app container
