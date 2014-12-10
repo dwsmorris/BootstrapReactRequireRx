@@ -1,0 +1,5 @@
+﻿<div>
+	<h3>TODO</h3>
+	<TodoList items={items} />
+	<TodoForm onSubmit={onSubmitTodo} />
+</div>

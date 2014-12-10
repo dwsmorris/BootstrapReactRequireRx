@@ -1,0 +1,4 @@
+﻿<form onSubmit={onSubmit}>
+	<input type="text" value="{{text}}" onChange={onTextChange}/>
+	<input type="submit" value="Add Todo"/>
+</form>

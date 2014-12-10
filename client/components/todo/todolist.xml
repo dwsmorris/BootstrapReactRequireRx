@@ -1,0 +1,5 @@
+﻿<ul>
+	{{#items}}
+		<li key="{{index}}">{{data}}</li>
+	{{/items}}
+</ul>

@@ -11,7 +11,8 @@ require.config({
 		"mustache": "thirdparty/mustache",
 		maskedEval: "utility/maskedeval",
 		xmlToJs: "utility/xmltojs",
-		jquery: "thirdparty/jquery"
+		jquery: "thirdparty/jquery",
+		underscore: "thirdparty/underscore"
 	},
 	map: {
 		"*": {
@@ -43,6 +44,7 @@ require([
 	"text!demo2.xml",
 	"jquery",
 	"components/secondtimer/secondtimer",
+	"components/todo/todos",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -54,7 +56,8 @@ require([
 	xmlToJs,
 	demo2Xml,
 	$,
-	secondTimer
+	secondTimer,
+	todos
 ) {
 
 	// Mount the JSX component in the app container
@@ -73,5 +76,10 @@ require([
 	React.render(
 		React.createElement(secondTimer),
 		$(".secondTimer").get(0)
+	);
+
+	React.render(
+		React.createElement(todos),
+		$(".todos").get(0)
 	);
 });
