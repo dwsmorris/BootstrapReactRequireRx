@@ -15,6 +15,7 @@ require.config({
 		underscore: "thirdparty/underscore",
 		rx: "thirdparty/rx.lite",
 		binder: "utility/binder",
+		replicate: "utility/replicate",
 		itemsIntent: "components/items/itemsintent",
 		itemsModel: "components/items/itemsmodel",
 		itemsView: "components/items/itemsview"
@@ -97,4 +98,10 @@ require([
 	);
 
 	binder(itemsModel, itemsView, itemsIntent);
+	React.render(
+		React.createElement(itemsView, {
+			items: []
+		}),
+		$(".application").get(0)
+	);
 });
