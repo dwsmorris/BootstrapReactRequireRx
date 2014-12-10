@@ -13,7 +13,11 @@ require.config({
 		xmlToJs: "utility/xmltojs",
 		jquery: "thirdparty/jquery",
 		underscore: "thirdparty/underscore",
-		rx: "thirdparty/rx"
+		rx: "thirdparty/rx.lite",
+		binder: "utility/binder",
+		itemsIntent: "components/items/itemsintent",
+		itemsModel: "components/items/itemsmodel",
+		itemsView: "components/items/itemsview"
 	},
 	map: {
 		"*": {
@@ -46,7 +50,10 @@ require([
 	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
-	"rx",
+	"itemsModel",
+	"itemsIntent",
+	"itemsView",
+	"binder",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -60,7 +67,10 @@ require([
 	$,
 	secondTimer,
 	todos,
-	Rx
+	itemsModel,
+	itemsIntent,
+	itemsView,
+	binder
 ) {
 
 	// Mount the JSX component in the app container
@@ -85,4 +95,6 @@ require([
 		React.createElement(todos),
 		$(".todos").get(0)
 	);
+
+	binder(itemsModel, itemsView, itemsIntent);
 });
