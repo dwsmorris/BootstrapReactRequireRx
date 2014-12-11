@@ -29,8 +29,8 @@ define([
 		})
 	);
 
-	var removeItem$ = inputRemoveClicks$.map(function (clickEvent, id) {
-		return id;
+	var removeItem$ = inputRemoveClicks$.map(function (id) {
+		return +id;
 	});
 
 	var colorChanged$ = inputItemColorChanged$.map(function (inputEvent) {
