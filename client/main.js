@@ -16,17 +16,9 @@ require.config({
 		rx: "thirdparty/rx.lite",
 		binder: "utility/binder",
 		replicate: "utility/replicate",
-		text: "thirdparty/text"
-},
-	map: {
-		"*": {
-			/*
-			text: "thirdparty/text",
-			i18n: "thirdparty/i18n",
-			image: "thirdparty/image",*/
-			css: "thirdparty/require-css/css",
-			jsx: "thirdparty/jsx"
-		}
+		text: "thirdparty/text",
+		css: "thirdparty/require-css/css",
+		jsx: "thirdparty/jsx"
 	},
 	shim: {
 		"es5-sham": {

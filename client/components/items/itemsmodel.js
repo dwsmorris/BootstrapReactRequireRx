@@ -46,6 +46,8 @@ define([
 		};
 	});
 
+	// reassigning ids makes this slow as substantial change to dom
+	// note that original react-only demo leaves gaps in array
 	var removeItemMod$ = intentRemoveItem$.map(function (id) {
 		return function (listItems) {
 			return listItems.filter(function (item) { return item.id !== id; })

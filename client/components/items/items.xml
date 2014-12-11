@@ -5,7 +5,7 @@
 	</div>
 	{{#items}}
 		<Item color="{{color}}"
-			  id="{{id}}" key="{{id}}"
+			  id="{{id}}"
 			  onChange={handleItemChange}
 			  onRemove={handleRemoveItem} />
 	{{/items}}
