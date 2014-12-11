@@ -65,8 +65,8 @@ define([
 	var items$ = itemModifications.startWith([{
 		id: 0,
 		color: 'red'
-	}]).scan(function (listItems, modification) {
-		return modification(listItems);
+	}]).scan(function (listItems) {
+		return listItems;
 	});
 
 	return {

@@ -18,7 +18,7 @@ define([
 	item
 ) {
 
-	var modelItems$ = new Rx.BehaviorSubject(null);
+	var modelItems$ = new Rx.Subject();
 	var itemWidthChanged$ = new Rx.Subject();
 	var itemColorChanged$ = new Rx.Subject();
 	var removeClicks$ = new Rx.Subject();
@@ -28,8 +28,8 @@ define([
 	var observe = function (itemsModel) {
 		replicate(itemsModel.items$, modelItems$);
 	};
-	/*
-	var items = modelItems$.map(function (itemsData) {
+	
+	var vtree$ = modelItems$.map(function (itemsData) {
 		return itemsData.map(function (itemData) {
 			return {
 				color: itemData.color,
@@ -38,7 +38,11 @@ define([
 			};
 		});
 	});
-	*/
+
+	vtree$.subscribe(function (item) {
+		return item;
+	});
+	
 	var items = [{ color: "red", id: 0, key: 0 }];
 	var xml=mustache.to_html(itemsXml, {
 		items: items
@@ -73,6 +77,7 @@ define([
 	return {
 		observe: observe,
 		itemsView: itemsView,
+		vtree$: vtree$,
 		removeClicks$: removeClicks$,
 		addOneClicks$: addOneClicks$,
 		addManyClicks$: addManyClicks$,
