@@ -28,7 +28,36 @@ define([
 	var observe = function (itemsModel) {
 		replicate(itemsModel.items$, modelItems$);
 	};
-	
+
+	/*
+	var items = [{ color: "red", id: 0, key: 0 }];
+	var xml=mustache.to_html(itemsXml, {
+		items: items
+	});
+	*/
+
+	var itemsView = React.createClass({
+		render: function () {
+			return xmlToJs(mustache.to_html(itemsXml, {
+				items: this.props.items
+			}), {
+				addItem: function (ev) {
+					addOneClicks$.onNext(ev);
+				},
+				addManyItems: function (ev) {
+					addManyClicks$.onNext(ev);
+				},
+				handleItemChange: function (ev) {
+					itemColorChanged$.onNext(ev);
+				},
+				handleRemoveItem: function (ev) {
+					removeClicks$.onNext(ev);
+				},
+				Item: item
+			});
+		}
+	});
+
 	var vtree$ = modelItems$.map(function (itemsData) {
 		return itemsData.map(function (itemData) {
 			return {
@@ -37,41 +66,6 @@ define([
 				key: itemData.id
 			};
 		});
-	});
-
-	vtree$.subscribe(function (item) {
-		return item;
-	});
-	
-	var items = [{ color: "red", id: 0, key: 0 }];
-	var xml=mustache.to_html(itemsXml, {
-		items: items
-	});
-
-	var itemsView = React.createClass({
-		render: function () {
-			return xmlToJs(mustache.to_html(itemsXml, {
-				items: items
-			}), {
-				addItem: function (ev) {
-					addOneClicks$.onNext(ev);
-					itemsView.forceUpdate();
-				},
-				addManyItems: function (ev) {
-					addManyClicks$.onNext(ev);
-					itemsView.forceUpdate();
-				},
-				handleItemChange: function (ev) {
-					itemColorChanged$.onNext(ev);
-					itemsView.forceUpdate();
-				},
-				handleRemoveItem: function (ev) {
-					removeClicks$.onNext(ev);
-					itemsView.forceUpdate();
-				},
-				Item: item
-			});
-		}
 	});
 
 	return {

@@ -95,10 +95,20 @@ require([
 	);
 
 	binder(itemsModel, itemsView, itemsIntent);
-	React.render(
-		React.createElement(itemsView.itemsView, {
-			items: []
-		}),
-		$(".application").get(0)
-	);
+
+	var render = function (items) {
+		React.render(
+			React.createElement(itemsView.itemsView, {
+				items: items
+			}),
+			$(".application").get(0)
+		);
+	};
+	render([]);
+
+	itemsView.vtree$.subscribe(function (items) {
+		render(items);
+	});
+
+
 });
