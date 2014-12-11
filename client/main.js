@@ -46,7 +46,6 @@ require([
 	"components/hellocomponent/hellocomponent",
 	"xmlToJs",
 	"text!demo2.xml",
-	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
 	"itemsModel",
@@ -63,7 +62,6 @@ require([
 	helloComponent,
 	xmlToJs,
 	demo2Xml,
-	$,
 	secondTimer,
 	todos,
 	itemsModel,
@@ -82,17 +80,17 @@ require([
 		xmlToJs(demo2Xml, {
 			HelloComponent: helloComponent
 		}),
-		$(".label").get(0)
+		document.getElementsByClassName("label")[0]
 	);
 
 	React.render(
 		React.createElement(secondTimer),
-		$(".secondTimer").get(0)
+		document.getElementsByClassName("secondTimer")[0]
 	);
 
 	React.render(
 		React.createElement(todos),
-		$(".todos").get(0)
+		document.getElementsByClassName("todos")[0]
 	);
 
 	binder(itemsModel, itemsView, itemsIntent);
@@ -102,7 +100,7 @@ require([
 			React.createElement(itemsView.itemsView, {
 				items: items
 			}),
-			$(".application").get(0)
+			document.getElementsByClassName("application")[0]
 		);
 	};
 
