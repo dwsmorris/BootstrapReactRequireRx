@@ -33,12 +33,7 @@ define([
 		return +id;
 	});
 
-	var colorChanged$ = inputItemColorChanged$.map(function (inputEvent) {
-		return {
-			id: Number(inputEvent.currentTarget.attributes['data-item-id'].value),
-			color: inputEvent.currentTarget.value
-		};
-	});
+	var colorChanged$ = inputItemColorChanged$;
 
 	return {
 		observe: observe,

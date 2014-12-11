@@ -55,7 +55,7 @@ define([
 
 	var colorChangedMod$ = intentColorChanged$.map(function (x) {
 		return function (listItems) {
-			listItems[x.id].color = x.color;
+			listItems[x.itemId].color = x.color;
 			return listItems;
 		};
 	});

@@ -42,8 +42,11 @@ define([
 				addManyItems: function (ev) {
 					addManyClicks$.onNext(ev);
 				},
-				handleItemChange: function (itemId) {
-					itemColorChanged$.onNext(itemId);
+				handleItemChange: function (itemId, color) {
+					itemColorChanged$.onNext({
+						itemId: +itemId,
+						color: color
+					});
 				},
 				handleRemoveItem: function(itemId) {
 					removeClicks$.onNext(itemId);

@@ -15,9 +15,12 @@ define([
 
 	return React.createClass({
 		render: function () {
+			var that = this;
 			return xmlToJs(itemXml, {
 				color: this.props.color,
-				handleColorChange: this.props.onChange,
+				handleColorChange: function(e) {
+					that.props.onChange(that.props.id, e.target.value);
+				},
 				handleRemoveClick: _.partial(this.props.onRemove, this.props.id),
 				style: {
 					background: this.props.color
