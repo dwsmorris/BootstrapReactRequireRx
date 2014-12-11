@@ -4,13 +4,11 @@ define([
 	"react"	,
 	"text!./item.xml",
 	"xmlToJs",
-	"mustache",
 	"css!./item.css"
 ], function (
 	React,
 	itemXml,
-	xmlToJs,
-	mustache
+	xmlToJs
 ) {
 
 	return React.createClass({
