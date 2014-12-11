@@ -104,9 +104,11 @@ require([
 			$(".application").get(0)
 		);
 	};
-	render([]);
 
-	itemsView.vtree$.subscribe(function (items) {
+	itemsView.vtree$.startWith([{
+		id: 0,
+		color: 'red'
+	}]).subscribe(function (items) {
 		render(items);
 	});
 
