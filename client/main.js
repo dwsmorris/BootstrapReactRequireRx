@@ -15,10 +15,7 @@ require.config({
 		underscore: "thirdparty/underscore",
 		rx: "thirdparty/rx.lite",
 		binder: "utility/binder",
-		replicate: "utility/replicate",
-		itemsIntent: "components/items/itemsintent",
-		itemsModel: "components/items/itemsmodel",
-		itemsView: "components/items/itemsview"
+		replicate: "utility/replicate"
 	},
 	map: {
 		"*": {
@@ -51,9 +48,9 @@ require([
 	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
-	"itemsModel",
-	"itemsIntent",
-	"itemsView",
+	"components/items/itemsintent",
+	"components/items/itemsmodel",
+	"components/items/itemsview",
 	"binder",
 	"es5-shim",
 	"es5-sham",

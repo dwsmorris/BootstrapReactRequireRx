@@ -4,15 +4,15 @@ define([
 	"rx",
 	"replicate",
 	"react",
-	"text!./items.xml",
 	"mustache",
+	"text!./items.xml",
 	"xmlToJs"
 ], function (
 	Rx,
 	replicate,
 	React,
-	itemsXml,
 	mustache,
+	itemsXml,
 	xmlToJs
 ) {
 
