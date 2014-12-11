@@ -6,14 +6,16 @@ define([
 	"react",
 	"mustache",
 	"text!./items.xml",
-	"xmlToJs"
+	"xmlToJs",
+	"./item"
 ], function (
 	Rx,
 	replicate,
 	React,
 	mustache,
 	itemsXml,
-	xmlToJs
+	xmlToJs,
+	item
 ) {
 
 	var modelItems$ = new Rx.BehaviorSubject(null);
@@ -26,7 +28,7 @@ define([
 	var observe = function (itemsModel) {
 		replicate(itemsModel.items$, modelItems$);
 	};
-
+	/*
 	var items = modelItems$.map(function (itemsData) {
 		return itemsData.map(function (itemData) {
 			return {
@@ -35,6 +37,11 @@ define([
 				key: itemData.id
 			};
 		});
+	});
+	*/
+	var items = [{ color: "red", id: 0, key: 0 }];
+	var xml=mustache.to_html(itemsXml, {
+		items: items
 	});
 
 	var itemsView = React.createClass({
@@ -57,7 +64,8 @@ define([
 				handleRemoveItem: function (ev) {
 					removeClicks$.onNext(ev);
 					itemsView.forceUpdate();
-				}
+				},
+				Item: item
 			});
 		}
 	});

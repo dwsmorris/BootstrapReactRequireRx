@@ -3,4 +3,10 @@
 		<button onClick={addItem}>Add New Item</button>
 		<button onClick={addManyItems}>Add Many Items</button>
 	</div>
+	{{#items}}
+		<Item color="{{color}}"
+			  id="{{id}}" key="{{id}}"
+			  onChange={handleItemChange}
+			  onRemove={handleRemoveItem} />
+	{{/items}}
 </div>
