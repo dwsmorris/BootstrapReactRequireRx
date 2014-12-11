@@ -10,6 +10,12 @@
 
   stubModules: ['jsx'],
 
+  map: {
+  	"*": {
+  		css: "thirdParty/require-css/css-builder"
+  	}
+  },
+
   modules: [
     {
       name: "main",

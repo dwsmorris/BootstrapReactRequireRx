@@ -3,7 +3,8 @@
 define([
 	"react"	,
 	"text!./item.xml",
-	"xmlToJs"
+	"xmlToJs",
+	"css!./item.css"
 ], function (
 	React,
 	itemXml,

@@ -19,9 +19,10 @@ require.config({
 	},
 	map: {
 		"*": {
-			/*css: "thirdparty/require-css/css",
+			/*
 			i18n: "thirdparty/i18n",
 			image: "thirdparty/image",*/
+			css: "thirdparty/require-css/css",
 			text: "thirdparty/text",
 			jsx: "thirdparty/jsx"
 		}
