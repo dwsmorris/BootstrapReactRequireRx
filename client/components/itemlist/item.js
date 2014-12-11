@@ -4,7 +4,7 @@ define([
 	"react"	,
 	"text!itemXml",
 	"xmlToJs",
-	"underscore",
+	"lodash",
 	"css!./item.css"
 ], function (
 	React,

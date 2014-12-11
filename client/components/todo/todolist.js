@@ -4,7 +4,7 @@ define([
 	"react",
 	"text!./todolist.xml",
 	"xmlToJs",
-	"underscore",
+	"lodash",
 	"mustache"
 ], function (
 	React,
