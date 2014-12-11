@@ -15,15 +15,16 @@ require.config({
 		underscore: "thirdparty/underscore",
 		rx: "thirdparty/rx.lite",
 		binder: "utility/binder",
-		replicate: "utility/replicate"
-	},
+		replicate: "utility/replicate",
+		text: "thirdparty/text"
+},
 	map: {
 		"*": {
 			/*
+			text: "thirdparty/text",
 			i18n: "thirdparty/i18n",
 			image: "thirdparty/image",*/
 			css: "thirdparty/require-css/css",
-			text: "thirdparty/text",
 			jsx: "thirdparty/jsx"
 		}
 	},

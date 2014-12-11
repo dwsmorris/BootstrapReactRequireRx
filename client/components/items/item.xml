@@ -1,4 +1,4 @@
-﻿<div className="item">
+﻿<div className="item" style={style}>
 	<div>
 		<input type="text" value={color}
 			   onChange={handleItemChange} />
