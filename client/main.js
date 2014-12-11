@@ -18,7 +18,14 @@ require.config({
 		replicate: "utility/replicate",
 		text: "thirdparty/text",
 		css: "thirdparty/require-css/css",
-		jsx: "thirdparty/jsx"
+		jsx: "thirdparty/jsx",
+		itemsModel: "components/items/itemsmodel",
+		itemsIntent: "components/items/itemsintent",
+		itemsView: "components/items/itemsview",
+		itemXml: "components/items/item.xml",
+		itemsXml: "components/items/items.xml",
+		item: "components/items/item",
+		items: "components/items/items"
 	},
 	shim: {
 		"es5-sham": {
@@ -42,9 +49,9 @@ require([
 	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
-	"components/items/itemsmodel",
-	"components/items/itemsintent",
-	"components/items/itemsview",
+	"itemsModel",
+	"itemsIntent",
+	"itemsView",
 	"binder",
 	"es5-shim",
 	"es5-sham",

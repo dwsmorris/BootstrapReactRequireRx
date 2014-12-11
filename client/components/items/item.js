@@ -2,7 +2,7 @@
 
 define([
 	"react"	,
-	"text!./item.xml",
+	"text!itemXml",
 	"xmlToJs",
 	"underscore",
 	"css!./item.css"

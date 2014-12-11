@@ -5,10 +5,9 @@ define([
 	"replicate",
 	"react",
 	"mustache",
-	"text!./items.xml",
+	"text!itemsXml",
 	"xmlToJs",
-	"./item",
-	"text!./item.xml"
+	"item"
 ], function (
 	Rx,
 	replicate,
@@ -16,8 +15,7 @@ define([
 	mustache,
 	itemsXml,
 	xmlToJs,
-	item,
-	itemXml
+	item
 ) {
 
 	var modelItems$ = new Rx.Subject();
