@@ -29,15 +29,10 @@ define([
 		replicate(itemsModel.items$, modelItems$);
 	};
 
-	/*
-	var items = [{ color: "red", id: 0, key: 0 }];
-	var xml=mustache.to_html(itemsXml, {
-		items: items
-	});
-	*/
-
 	var itemsView = React.createClass({
 		render: function () {
+			var that = this;
+
 			return xmlToJs(mustache.to_html(itemsXml, {
 				items: this.props.items
 			}), {
@@ -51,7 +46,7 @@ define([
 					itemColorChanged$.onNext(ev);
 				},
 				handleRemoveItem: function (ev) {
-					removeClicks$.onNext(ev);
+					removeClicks$.onNext(ev, that.props.id);
 				},
 				Item: item
 			});

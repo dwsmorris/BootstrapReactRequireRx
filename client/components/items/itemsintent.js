@@ -29,8 +29,8 @@ define([
 		})
 	);
 
-	var removeItem$ = inputRemoveClicks$.map(function (clickEvent) {
-		return Number(clickEvent.currentTarget.attributes['data-item-id'].value);
+	var removeItem$ = inputRemoveClicks$.map(function (clickEvent, id) {
+		return id;
 	});
 
 	var colorChanged$ = inputItemColorChanged$.map(function (inputEvent) {
