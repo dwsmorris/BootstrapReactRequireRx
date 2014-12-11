@@ -48,8 +48,8 @@ require([
 	"jquery",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
-	"components/items/itemsintent",
 	"components/items/itemsmodel",
+	"components/items/itemsintent",
 	"components/items/itemsview",
 	"binder",
 	"es5-shim",
@@ -96,7 +96,7 @@ require([
 
 	binder(itemsModel, itemsView, itemsIntent);
 	React.render(
-		React.createElement(itemsView, {
+		React.createElement(itemsView.itemsView, {
 			items: []
 		}),
 		$(".application").get(0)

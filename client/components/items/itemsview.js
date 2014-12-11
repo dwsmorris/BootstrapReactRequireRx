@@ -68,6 +68,6 @@ define([
 		removeClicks$: removeClicks$,
 		addOneClicks$: addOneClicks$,
 		addManyClicks$: addManyClicks$,
-		itemColorChanged: itemColorChanged$
+		itemColorChanged$: itemColorChanged$
 	};
 });
