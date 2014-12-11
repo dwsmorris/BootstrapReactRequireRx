@@ -19,13 +19,13 @@ require.config({
 		text: "thirdparty/text",
 		css: "thirdparty/require-css/css",
 		jsx: "thirdparty/jsx",
-		itemsModel: "components/items/itemsmodel",
-		itemsIntent: "components/items/itemsintent",
-		itemsView: "components/items/itemsview",
-		itemXml: "components/items/item.xml",
-		itemsXml: "components/items/items.xml",
-		item: "components/items/item",
-		items: "components/items/items"
+		itemsModel: "components/itemlist/itemsmodel",
+		itemsIntent: "components/itemlist/itemsintent",
+		itemsView: "components/itemlist/itemsview",
+		itemXml: "components/itemlist/item.xml",
+		itemsXml: "components/itemlist/items.xml",
+		item: "components/itemlist/item",
+		items: "components/itemlist/items"
 	},
 	shim: {
 		"es5-sham": {
