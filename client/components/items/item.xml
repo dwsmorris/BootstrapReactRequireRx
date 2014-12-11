@@ -1,9 +1,9 @@
 ﻿<div className="item" style={style}>
 	<div>
 		<input type="text" value={color}
-			   onChange={handleItemChange} />
+			   onChange={handleColorChange} />
 	</div>
 	<div>
-		<button onClick={handleRemoveItem}>Remove</button>
+		<button onClick={handleRemoveClick}>Remove</button>
 	</div>
 </div>

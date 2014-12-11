@@ -7,7 +7,8 @@ define([
 	"mustache",
 	"text!./items.xml",
 	"xmlToJs",
-	"./item"
+	"./item",
+	"text!./item.xml"
 ], function (
 	Rx,
 	replicate,
@@ -15,7 +16,8 @@ define([
 	mustache,
 	itemsXml,
 	xmlToJs,
-	item
+	item,
+	itemXml
 ) {
 
 	var modelItems$ = new Rx.Subject();
@@ -31,8 +33,6 @@ define([
 
 	var itemsView = React.createClass({
 		render: function () {
-			var that = this;
-
 			return xmlToJs(mustache.to_html(itemsXml, {
 				items: this.props.items
 			}), {
@@ -42,11 +42,11 @@ define([
 				addManyItems: function (ev) {
 					addManyClicks$.onNext(ev);
 				},
-				handleItemChange: function (ev) {
-					itemColorChanged$.onNext(ev);
+				handleItemChange: function (itemId) {
+					itemColorChanged$.onNext(itemId);
 				},
-				handleRemoveItem: function (ev) {
-					removeClicks$.onNext(ev, that.props.id);
+				handleRemoveItem: function(itemId) {
+					removeClicks$.onNext(itemId);
 				},
 				Item: item
 			});

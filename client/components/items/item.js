@@ -4,19 +4,21 @@ define([
 	"react"	,
 	"text!./item.xml",
 	"xmlToJs",
+	"underscore",
 	"css!./item.css"
 ], function (
 	React,
 	itemXml,
-	xmlToJs
+	xmlToJs,
+	_
 ) {
 
 	return React.createClass({
 		render: function () {
 			return xmlToJs(itemXml, {
 				color: this.props.color,
-				handleItemChange: this.props.onChange,
-				handleRemoveItem: this.props.onRemove,
+				handleColorChange: this.props.onChange,
+				handleRemoveClick: _.partial(this.props.onRemove, this.props.id),
 				style: {
 					background: this.props.color
 				}
