@@ -1,7 +1,4 @@
-RatchetReactRequireRx
+BootstrapReactRequireRx
 =====================
 
-Componentized UI development for mobile using Ratchet, React.js, Require.js and Rx.js
-
-This work is derivative from Christophe Conraets' work here:
-https://github.com/ccoenraets/react-employee-directory
+A componentized UI development using declarative style React components (from Bootstrap) modularized with Require.js and connected together with Rx.js
