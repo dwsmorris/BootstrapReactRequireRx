@@ -99,7 +99,7 @@ require([
 			React.createElement(itemsView.itemsView, {
 				items: items
 			}),
-			document.getElementsByClassName("application")[0]
+			document.getElementsByClassName("itemList")[0]
 		);
 	};
 
