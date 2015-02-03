@@ -20,7 +20,7 @@ define([
 
 	var modelItems$ = new Rx.Subject();
 
-	var colorDescriptionUpdated = new Rx.Subject();
+	var colorDescriptionModified = new Rx.Subject();
 	var removeButtonClicked = new Rx.Subject();
 	var addNewItemButtonClicked = new Rx.Subject();
 	var addManyItemsButtonClicked = new Rx.Subject();
@@ -41,7 +41,7 @@ define([
 					addManyItemsButtonClicked.onNext(ev);
 				},
 				handleItemChange: function (itemId, color) {
-					colorDescriptionUpdated.onNext({
+					colorDescriptionModified.onNext({
 						itemId: +itemId,
 						color: color
 					});
@@ -71,6 +71,6 @@ define([
 		removeButtonClicked: removeButtonClicked,
 		addNewItemButtonClicked: addNewItemButtonClicked,
 		addManyItemsButtonClicked: addManyItemsButtonClicked,
-		colorDescriptionUpdated: colorDescriptionUpdated
+		colorDescriptionModified: colorDescriptionModified
 	};
 });
