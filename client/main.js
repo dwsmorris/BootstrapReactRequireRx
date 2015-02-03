@@ -24,7 +24,8 @@ require.config({
 		itemXml: "components/itemlist/item.xml",
 		itemsXml: "components/itemlist/items.xml",
 		item: "components/itemlist/item",
-		items: "components/itemlist/items"
+		items: "components/itemlist/items",
+		addItemList: "components/itemlist/additemlist"
 	},
 	shim: {
 		"es5-sham": {
@@ -47,10 +48,7 @@ require([
 	"text!demo2.xml",
 	"components/secondtimer/secondtimer",
 	"components/todo/todos",
-	"itemsModel",
-	"itemsIntent",
-	"itemsView",
-	"binder",
+	"addItemList",
 	"es5-shim",
 	"es5-sham",
 	"console-polyfill",
@@ -63,10 +61,7 @@ require([
 	demo2Xml,
 	secondTimer,
 	todos,
-	itemsModel,
-	itemsIntent,
-	itemsView,
-	binder
+	addItemList
 ) {
 
 	// Mount the JSX component in the app container
@@ -92,23 +87,6 @@ require([
 		document.getElementsByClassName("todos")[0]
 	);
 
-	binder(itemsModel, itemsView, itemsIntent);
-
-	var render = function (items) {
-		React.render(
-			React.createElement(itemsView.itemsView, {
-				items: items
-			}),
-			document.getElementsByClassName("itemList")[0]
-		);
-	};
-
-	itemsView.vtree$.startWith([{
-		id: 0,
-		color: 'red'
-	}]).subscribe(function (items) {
-		render(items);
-	});
-
+	addItemList(document.getElementsByClassName("itemList")[0]);
 
 });
