@@ -19,11 +19,10 @@ define([
 ) {
 
 	var modelItems$ = new Rx.Subject();
-	var itemWidthChanged$ = new Rx.Subject();
-	var itemColorChanged$ = new Rx.Subject();
+	var colorDescriptionUpdated = new Rx.Subject();
 	var removeClicks$ = new Rx.Subject();
-	var addOneClicks$ = new Rx.Subject();
-	var addManyClicks$ = new Rx.Subject();
+	var addNewItemButtonClicked = new Rx.Subject();
+	var addManyItemsButtonClicked = new Rx.Subject();
 
 	var observe = function (itemsModel) {
 		replicate(itemsModel.items$, modelItems$);
@@ -35,13 +34,13 @@ define([
 				items: this.props.items
 			}), {
 				addItem: function (ev) {
-					addOneClicks$.onNext(ev);
+					addNewItemButtonClicked.onNext(ev);
 				},
 				addManyItems: function (ev) {
-					addManyClicks$.onNext(ev);
+					addManyItemsButtonClicked.onNext(ev);
 				},
 				handleItemChange: function (itemId, color) {
-					itemColorChanged$.onNext({
+					colorDescriptionUpdated.onNext({
 						itemId: +itemId,
 						color: color
 					});
@@ -69,8 +68,8 @@ define([
 		itemsView: itemsView,
 		vtree$: vtree$,
 		removeClicks$: removeClicks$,
-		addOneClicks$: addOneClicks$,
-		addManyClicks$: addManyClicks$,
-		itemColorChanged$: itemColorChanged$
+		addNewItemButtonClicked: addNewItemButtonClicked,
+		addManyItemsButtonClicked: addManyItemsButtonClicked,
+		colorDescriptionUpdated: colorDescriptionUpdated
 	};
 });

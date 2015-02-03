@@ -14,10 +14,10 @@ define([
 	var inputItemColorChanged$ = new Rx.Subject();
 
 	var observe = function (itemsView) {
-		replicate(itemsView.addOneClicks$, inputAddOneClicks$);
-		replicate(itemsView.addManyClicks$, inputAddManyClicks$);
+		replicate(itemsView.addNewItemButtonClicked, inputAddOneClicks$);
+		replicate(itemsView.addManyItemsButtonClicked, inputAddManyClicks$);
 		replicate(itemsView.removeClicks$, inputRemoveClicks$);
-		replicate(itemsView.itemColorChanged$, inputItemColorChanged$);
+		replicate(itemsView.colorDescriptionUpdated, inputItemColorChanged$);
 	};
 
 	var addItem$ = Rx.Observable.merge(
