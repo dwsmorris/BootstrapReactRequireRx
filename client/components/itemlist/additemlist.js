@@ -17,6 +17,9 @@ define([
 	return function (element) {
 		binder(itemsModel, itemsView, itemsIntent);
 
+		// stich up view -> intent messages
+
+
 		var render = function (items) {
 			React.render(
 				React.createElement(itemsView.itemsView, {

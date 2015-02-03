@@ -16,7 +16,7 @@ define([
 	var observe = function (itemsView) {
 		replicate(itemsView.addNewItemButtonClicked, inputAddOneClicks$);
 		replicate(itemsView.addManyItemsButtonClicked, inputAddManyClicks$);
-		replicate(itemsView.removeClicks$, inputRemoveClicks$);
+		replicate(itemsView.removeButtonClicked, inputRemoveClicks$);
 		replicate(itemsView.colorDescriptionUpdated, inputItemColorChanged$);
 	};
 

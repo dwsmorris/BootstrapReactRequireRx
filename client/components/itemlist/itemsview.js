@@ -19,8 +19,9 @@ define([
 ) {
 
 	var modelItems$ = new Rx.Subject();
+
 	var colorDescriptionUpdated = new Rx.Subject();
-	var removeClicks$ = new Rx.Subject();
+	var removeButtonClicked = new Rx.Subject();
 	var addNewItemButtonClicked = new Rx.Subject();
 	var addManyItemsButtonClicked = new Rx.Subject();
 
@@ -46,7 +47,7 @@ define([
 					});
 				},
 				handleRemoveItem: function(itemId) {
-					removeClicks$.onNext(itemId);
+					removeButtonClicked.onNext(itemId);
 				},
 				Item: item
 			});
@@ -67,7 +68,7 @@ define([
 		observe: observe,
 		itemsView: itemsView,
 		vtree$: vtree$,
-		removeClicks$: removeClicks$,
+		removeButtonClicked: removeButtonClicked,
 		addNewItemButtonClicked: addNewItemButtonClicked,
 		addManyItemsButtonClicked: addManyItemsButtonClicked,
 		colorDescriptionUpdated: colorDescriptionUpdated
