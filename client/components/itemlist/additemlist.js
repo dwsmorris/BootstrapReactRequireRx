@@ -3,21 +3,14 @@
 define([
 	"react",
 	"itemsModel",
-	"itemsIntent",
-	"itemsView",
-	"binder",
-	"replicate"
+	"itemsView"
 ], function (
 	React,
 	itemsModel,
-	itemsIntent,
-	itemsView,
-	binder,
-	replicate
+	itemsView
 ) {
 
 	return function (element) {
-		//binder(itemsModel, itemsView, itemsIntent);
 		itemsView = itemsView(element);
 
 		// view -> model
@@ -34,7 +27,6 @@ define([
 		itemsView.removeButtonClicked.subscribe(itemsModel.removeItem);
 
 		itemsView.colorDescriptionModified.subscribe(itemsModel.changeItemColor);
-
 
 		// model -> view
 		itemsModel.itemsUpdated.subscribe(itemsView.updateItems);

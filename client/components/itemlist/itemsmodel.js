@@ -1,19 +1,14 @@
 ﻿/*globals define*/
 
 define([
-	"rx",
-	"replicate"
+	"rx"
 ], function (
-	Rx,
-	replicate
+	Rx
 ) {
 
 	var updateNumberOfItems = new Rx.Subject();
 	var removeItem = new Rx.Subject();
 	var changeItemColor = new Rx.Subject();
-
-	var observe = function (itemsIntent) {
-	};
 
 	var createRandomItem = function () {
 		var hexColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -69,7 +64,6 @@ define([
 	});
 
 	return {
-		observe: observe,
 		itemsUpdated: itemsUpdated,
 		updateNumberOfItems: updateNumberOfItems,
 		removeItem: removeItem,

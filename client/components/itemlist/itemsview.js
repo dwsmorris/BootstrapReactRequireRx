@@ -2,7 +2,6 @@
 
 define([
 	"rx",
-	"replicate",
 	"react",
 	"mustache",
 	"text!itemsXml",
@@ -10,7 +9,6 @@ define([
 	"item"
 ], function (
 	Rx,
-	replicate,
 	React,
 	mustache,
 	itemsXml,
@@ -27,10 +25,6 @@ define([
 		var removeButtonClicked = new Rx.Subject();
 		var addNewItemButtonClicked = new Rx.Subject();
 		var addManyItemsButtonClicked = new Rx.Subject();
-
-		var observe = function (itemsModel) {
-			//replicate(itemsModel.items$, modelItems$);
-		};
 
 		var itemsView = React.createClass({
 			render: function () {
@@ -84,7 +78,6 @@ define([
 		});
 
 		return {
-			observe: observe,
 			itemsView: itemsView,
 			vtree$: vtree$,
 			removeButtonClicked: removeButtonClicked,
