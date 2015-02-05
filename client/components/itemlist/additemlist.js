@@ -14,7 +14,7 @@ define([
 		itemsView = itemsView(element);
 
 		// view -> model
-		var numberOfItemsRequested = Rx.Observable.merge(
+		var addItems = Rx.Observable.merge(
 			itemsView.addNewItemButtonClicked.map(function () {
 				return 1;
 			}),
@@ -22,7 +22,7 @@ define([
 				return 1000;
 			})
 		);
-		numberOfItemsRequested.subscribe(itemsModel.updateNumberOfItems);
+		addItems.subscribe(itemsModel.updateNumberOfItems);
 
 		itemsView.removeButtonClicked.subscribe(itemsModel.removeItem);
 

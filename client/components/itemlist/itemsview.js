@@ -19,8 +19,6 @@ define([
 
 		var updateItems = new Rx.Subject();
 
-		var modelItems$ = new Rx.Subject();
-
 		var colorDescriptionModified = new Rx.Subject();
 		var removeButtonClicked = new Rx.Subject();
 		var addNewItemButtonClicked = new Rx.Subject();
@@ -51,7 +49,7 @@ define([
 			}
 		});
 
-		var vtree$ = updateItems.map(function (itemsData) {
+		var virtualDom = updateItems.map(function (itemsData) {
 			return itemsData.map(function (itemData) {
 				return {
 					color: itemData.color,
@@ -70,7 +68,7 @@ define([
 			);
 		};
 
-		vtree$.startWith([{
+		virtualDom.startWith([{
 			id: 0,
 			color: 'red'
 		}]).subscribe(function (items) {
@@ -78,12 +76,11 @@ define([
 		});
 
 		return {
-			itemsView: itemsView,
-			vtree$: vtree$,
 			removeButtonClicked: removeButtonClicked,
 			addNewItemButtonClicked: addNewItemButtonClicked,
 			addManyItemsButtonClicked: addManyItemsButtonClicked,
 			colorDescriptionModified: colorDescriptionModified,
+
 			updateItems: updateItems
 		};
 	};
