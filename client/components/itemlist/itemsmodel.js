@@ -10,11 +10,9 @@ define([
 
 	var updateNumberOfItems = new Rx.Subject();
 	var removeItem = new Rx.Subject();
-
-	var intentColorChanged$ = new Rx.Subject();
+	var changeItemColor = new Rx.Subject();
 
 	var observe = function (itemsIntent) {
-		replicate(itemsIntent.colorChanged$, intentColorChanged$);
 	};
 
 	var createRandomItem = function () {
@@ -54,16 +52,16 @@ define([
 		};
 	});
 
-	var colorChangedMod$ = intentColorChanged$.map(function (x) {
+	var updateListOnColorChange = changeItemColor.map(function (x) {
 		return function (listItems) {
 			listItems[x.itemId].color = x.color;
 			return listItems;
 		};
 	});
 
-	var itemModifications = addItemMod$.merge(updatedListOnRemove).merge(colorChangedMod$);
+	var itemModifications = addItemMod$.merge(updatedListOnRemove).merge(updateListOnColorChange);
 
-	var items$ = itemModifications.startWith([{
+	var itemsUpdated = itemModifications.startWith([{
 		id: 0,
 		color: 'red'
 	}]).scan(function (listItems, modification) {
@@ -72,8 +70,9 @@ define([
 
 	return {
 		observe: observe,
-		items$: items$,
+		itemsUpdated: itemsUpdated,
 		updateNumberOfItems: updateNumberOfItems,
-		removeItem: removeItem
+		removeItem: removeItem,
+		changeItemColor: changeItemColor
 	};
 });

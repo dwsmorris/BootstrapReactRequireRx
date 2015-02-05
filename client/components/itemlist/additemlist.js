@@ -17,8 +17,10 @@ define([
 ) {
 
 	return function (element) {
-		binder(itemsModel, itemsView, itemsIntent);
+		//binder(itemsModel, itemsView, itemsIntent);
+		itemsView = itemsView(element);
 
+		// view -> model
 		var numberOfItemsRequested = Rx.Observable.merge(
 			itemsView.addNewItemButtonClicked.map(function () {
 				return 1;
@@ -31,24 +33,11 @@ define([
 
 		itemsView.removeButtonClicked.subscribe(itemsModel.removeItem);
 
+		itemsView.colorDescriptionModified.subscribe(itemsModel.changeItemColor);
 
 
-
-		var render = function (items) {
-			React.render(
-				React.createElement(itemsView.itemsView, {
-					items: items
-				}),
-				element
-			);
-		};
-
-		itemsView.vtree$.startWith([{
-			id: 0,
-			color: 'red'
-		}]).subscribe(function (items) {
-			render(items);
-		});
+		// model -> view
+		itemsModel.itemsUpdated.subscribe(itemsView.updateItems);
 	};
 
 });
