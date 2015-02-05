@@ -47,7 +47,7 @@ define([
 					});
 				},
 				handleRemoveItem: function(itemId) {
-					removeButtonClicked.onNext(itemId);
+					removeButtonClicked.onNext(+itemId);
 				},
 				Item: item
 			});

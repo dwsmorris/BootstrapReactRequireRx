@@ -5,21 +5,21 @@ define([
 	"itemsModel",
 	"itemsIntent",
 	"itemsView",
-	"binder"
+	"binder",
+	"replicate"
 ], function (
 	React,
 	itemsModel,
 	itemsIntent,
 	itemsView,
-	binder
+	binder,
+	replicate
 ) {
 
 	return function (element) {
 		binder(itemsModel, itemsView, itemsIntent);
 
-		// stich up view -> intent messages
-		var numberOfItemsRequested = new Rx.Subject();
-		numberOfItemsRequested.merge(
+		var numberOfItemsRequested = Rx.Observable.merge(
 			itemsView.addNewItemButtonClicked.map(function () {
 				return 1;
 			}),
@@ -27,9 +27,11 @@ define([
 				return 1000;
 			})
 		);
+		numberOfItemsRequested.subscribe(itemsModel.updateNumberOfItems);
 
-		// stich up intent -> model messages
-		//itemsModel.updateNumberOfItems()
+		itemsView.removeButtonClicked.subscribe(itemsModel.removeItem);
+
+
 
 
 		var render = function (items) {

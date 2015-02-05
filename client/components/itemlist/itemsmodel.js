@@ -8,13 +8,12 @@ define([
 	replicate
 ) {
 
-	var intentAddItem$ = new Rx.Subject();
-	var intentRemoveItem$ = new Rx.Subject();
+	var updateNumberOfItems = new Rx.Subject();
+	var removeItem = new Rx.Subject();
+
 	var intentColorChanged$ = new Rx.Subject();
 
 	var observe = function (itemsIntent) {
-		replicate(itemsIntent.addItem$, intentAddItem$);
-		replicate(itemsIntent.removeItem$, intentRemoveItem$);
 		replicate(itemsIntent.colorChanged$, intentColorChanged$);
 	};
 
@@ -36,7 +35,7 @@ define([
 		};
 	};
 
-	var addItemMod$ = intentAddItem$.map(function (amount) {
+	var addItemMod$ = updateNumberOfItems.map(function (amount) {
 		var newItems = [];
 		for (var i = 0; i < amount; i+=1) {
 			newItems.push(createRandomItem());
@@ -48,7 +47,7 @@ define([
 
 	// reassigning ids makes this slow as substantial change to dom
 	// note that original react-only demo leaves gaps in array
-	var removeItemMod$ = intentRemoveItem$.map(function (id) {
+	var updatedListOnRemove = removeItem.map(function (id) {
 		return function (listItems) {
 			return listItems.filter(function (item) { return item.id !== id; })
 							.map(reassignId);
@@ -62,7 +61,7 @@ define([
 		};
 	});
 
-	var itemModifications = addItemMod$.merge(removeItemMod$).merge(colorChangedMod$);
+	var itemModifications = addItemMod$.merge(updatedListOnRemove).merge(colorChangedMod$);
 
 	var items$ = itemModifications.startWith([{
 		id: 0,
@@ -73,6 +72,8 @@ define([
 
 	return {
 		observe: observe,
-		items$: items$
+		items$: items$,
+		updateNumberOfItems: updateNumberOfItems,
+		removeItem: removeItem
 	};
 });
