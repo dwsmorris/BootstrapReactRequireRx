@@ -6,14 +6,16 @@ define([
 	"mustache",
 	"text!itemsXml",
 	"xmlToJs",
-	"item"
+	"item",
+	"lodash"
 ], function (
 	Rx,
 	React,
 	mustache,
 	itemsXml,
 	xmlToJs,
-	item
+	item,
+	_
 ) {
 	return function (element) {
 
@@ -36,13 +38,10 @@ define([
 						addManyItemsButtonClicked.onNext(ev);
 					},
 					handleItemChange: function (itemId, color) {
-						colorDescriptionModified.onNext({
-							itemId: +itemId,
-							color: color
-						});
+						colorDescriptionModified.onNext(itemId, color);
 					},
 					handleRemoveItem: function (itemId) {
-						removeButtonClicked.onNext(+itemId);
+						removeButtonClicked.onNext(itemId);
 					},
 					Item: item
 				});
@@ -68,9 +67,19 @@ define([
 			);
 		};
 
+		var getUUID = function () {
+			var d = new Date().getTime();
+			var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+				var r = (d + Math.random() * 16) % 16 | 0;
+				d = Math.floor(d / 16);
+				return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+			});
+			return uuid;
+		};
+
 		virtualDom.startWith([{
-			id: 0,
-			color: 'red'
+			id: "0",
+			color: "red"
 		}]).subscribe(function (items) {
 			render(items);
 		});
